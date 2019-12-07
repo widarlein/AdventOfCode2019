@@ -18,6 +18,7 @@ internal fun runProgram(memory: IntArray): Int {
     while (memory[pointer] != 99 || pointer > memory.size) {
         val (opcode, parameterModes) = memory[pointer].toOpCodeAndParameterModes()
 
+        debug(opcode, parameterModes, memory, pointer)
         pointer = when(opcode) {
             1 -> add(pointer + 1, pointer + 2, pointer + 3, memory, parameterModes)
             2 -> multiply(pointer + 1, pointer + 2, pointer + 3, memory, parameterModes)
